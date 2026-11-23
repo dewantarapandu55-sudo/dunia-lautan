@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dunia Lautan 🌊</title>
+<style>
+body{margin:0;font-family:Arial;background:#001f3f;color:white;text-align:center}
+header{padding:20px;background:linear-gradient(#00bfff,#001f3f)}
+h1{font-size:32px;margin:0}
+.grid{display:flex;flex-wrap:wrap;justify-content:center;gap:15px;padding:20px}
+.card{background:white;color:#001f3f;width:140px;border-radius:20px;padding:15px;cursor:pointer}
+.card .emoji{font-size:55px}
+#detail{background:white;color:#001f3f;margin:15px;border-radius:25px;padding:20px;text-align:left;display:none}
+#detail .big{font-size:90px;text-align:center}
+#detail h2{text-align:center}
+.info{background:#e0f7ff;border-radius:15px;padding:12px}
+button{background:#00bfff;border:0;padding:12px 20px;border-radius:20px;font-weight:bold;color:white;width:100%}
+</style>
+</head>
+<body>
+<header><h1>🌊 DUNIA LAUTAN 🐬</h1><p>Klik hewan lautnya!</p></header>
+<div class="grid">
+<div class="card" onclick="show('hiu')"><div class="emoji">🦈</div><b>Hiu</b><br>Pemburu Laut</div>
+<div class="card" onclick="show('paus')"><div class="emoji">🐳</div><b>Paus</b><br>Raksasa Baik</div>
+<div class="card" onclick="show('lumba')"><div class="emoji">🐬</div><b>Lumba-lumba</b><br>Paling Pintar</div>
+<div class="card" onclick="show('gurita')"><div class="emoji">🐙</div><b>Gurita</b><br>8 Tangan</div>
+<div class="card" onclick="show('penyu')"><div class="emoji">🐢</div><b>Penyu</b><br>Bisa 100 Tahun</div>
+<div class="card" onclick="show('nemo')"><div class="emoji">🐠</div><b>Ikan Badut</b><br>Si Nemo</div>
+<div class="card" onclick="show('ubur')"><div class="emoji">🪼</div><b>Ubur-ubur</b><br>Tanpa Tulang</div>
+<div class="card" onclick="show('kepiting')"><div class="emoji">🦀</div><b>Kepiting</b><br>Jalan Samping</div>
+<div class="card" onclick="show('bintang')"><div class="emoji">⭐</div><b>Bintang Laut</b><br>Bisa Tumbuh Lagi</div>
+<div class="card" onclick="show('kuda')"><div class="emoji">🐴</div><b>Kuda Laut</b><br>Berdiri Tegak</div>
+</div>
+<div id="detail"></div>
+<script>
+const data={
+hiu:{e:'🦈',t:'Hiu',d:'Hiu adalah pemburu paling hebat di laut! Giginya tajam dan bisa tumbuh terus kalau patah. Tapi hiu tidak suka makan manusia, dia lebih suka makan ikan.',f:'Hiu sudah ada sebelum Dinosaurus!',m:'Ikan, Cumi-cumi',u:'Sampai 6 Meter',s:'Cepat & Pemberani'},
+paus:{e:'🐳',t:'Paus Biru',d:'Ini hewan TERBESAR di dunia! Lebih besar dari 20 gajah! Meskipun gede, paus baik hati dan makannya cuma udang kecil namanya Krill.',f:'Suara paus bisa kedengeran sampai 1600 km!',m:'Udang Kecil (Krill)',u:'Sampai 30 Meter',s:'Lembut & Baik'},
+lumba:{e:'🐬',t:'Lumba-lumba',d:'Lumba-lumba hewan paling pintar di laut! Bisa belajar trik, suka lompat-lompat, dan suka bantuin temannya yang sakit.',f:'Lumba-lumba tidur dengan satu mata terbuka!',m:'Ikan Kecil',u:'2 - 3 Meter',s:'Pintar & Ramah'},
+gurita:{e:'🐙',t:'Gurita',d:'Gurita punya 8 tangan dan 3 jantung! Kalau ada musuh, dia nyemprotin tinta hitam biar bisa kabur. Dia juga jago ngumpet!',f:'Gurita bisa ganti warna kulitnya!',m:'Kepiting, Udang',u:'Sampai 5 Meter',s:'Cerdik & Pemalu'},
+penyu:{e:'🐢',t:'Penyu',d:'Penyu perenang hebat dan bisa hidup sampai 100 tahun! Dia lahir di pantai, terus berenang jauh ke tengah laut.',f:'Penyu bisa menahan napas 5 jam!',m:'Rumput Laut, Ubur-ubur',u:'Sampai 1,5 Meter',s:'Tenang & Sabar'},
+nemo:{e:'🐠',t:'Ikan Badut / Nemo',d:'Ini si Nemo! Warna orange putihnya lucu. Dia tinggal di dalam Anemon, hewan laut seperti bunga tapi bisa menyengat. Tapi Nemo kebal!',f:'Nemo tinggal di Anemon beracun!',m:'Plankton Kecil',u:'Cuma 11 cm',s:'Lucu & Pemberani'},
+ubur:{e:'🪼',t:'Ubur-ubur',d:'Ubur-ubur badannya 95% air, tidak punya tulang, tidak punya otak, tapi masih bisa hidup! Ada yang bisa menyala di kegelapan!',f:'Ada ubur-ubur yang bisa hidup selamanya!',m:'Plankton',u:'2cm - 2 Meter',s:'Melayang Santai'},
+kepiting:{e:'🦀',t:'Kepiting',d:'Kepiting jalannya miring, lucu banget! Punya capit besar buat capit musuhnya. Kalau capitnya putus, bisa tumbuh lagi!',f:'Kepiting jalan ke samping, bukan ke depan!',m:'Ikan kecil, Alga',u:'10 - 20 cm',s:'Lucu & Galak'},
+bintang:{e:'⭐',t:'Bintang Laut',d:'Bintang laut bukan ikan! Tidak punya otak dan darah. Kalau tangannya putus, bisa tumbuh lagi! Ada yang punya 40 tangan!',f:'Bintang laut bisa menumbuhkan tangan baru!',m:'Kerang, Siput',u:'10 - 30 cm',s:'Lambat & Kuat'},
+kuda:{e:'🐴',t:'Kuda Laut',d:'Kuda laut berenangnya berdiri tegak! Yang unik, Ayah kuda laut yang mengandung anaknya, bukan Ibunya!',f:'Ayah kuda laut yang hamil!',m:'Udang Kecil',u:'Cuma 2 - 30 cm',s:'Unik & Pelan'}
+};
+function show(k){let d=data[k];document.getElementById('detail').style.display='block';document.getElementById('detail').innerHTML=`<div class="big">${d.e}</div><h2>${d.t}</h2><p>${d.d}</p><div class="info"><b>Fakta Seru:</b> ${d.f}<br><br><b>Makan:</b> ${d.m}<br><b>Ukuran:</b> ${d.u}<br><b>Sifat:</b> ${d.s}</div><br><button onclick="document.getElementById('detail').style.display='none'">Tutup ❌</button>`;window.scrollTo(0,document.getElementById('detail').offsetTop);}
+</script>
+</body>
+</html>
